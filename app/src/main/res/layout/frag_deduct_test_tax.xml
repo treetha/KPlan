@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textview_risk_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="ทดลองวางแผนภาษี"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/table_tax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title">
+
+        <TableRow
+            android:id="@+id/table_tax_row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorOrangeButton"
+            android:padding="10dp"
+            android:weightSum="3.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="ค่าลดหย่อนภาษี" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="สิทธิใช้ได้อีก" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="ต้องการใช้สิทธิเพิ่ม" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:weightSum="3.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="กองทุน LTF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="50,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20,000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:weightSum="3.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="กองทุน RMF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="50,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20,000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:weightSum="3.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="เบี้ยประกันชีวิต" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="10,000" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:weightSum="3.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="เบี้ยประกันบำนาญ" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="150,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20,000" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textview_table_tax_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_tax"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:text="คุณสามารถลดภาระภาษีรวม"
+        android:textColor="#06000b" />
+
+    <TextView
+        android:id="@+id/textview_total_revenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_table_tax_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_table_tax_title"
+        app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue_baht"
+        android:layout_marginBottom="8dp"
+        android:padding="15dp"
+        android:text="7,500.00"
+        android:textColor="#06000b" />
+
+    <TextView
+        android:id="@+id/textview_total_revenue_baht"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_table_tax_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_table_tax_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:padding="15dp"
+        android:text="บาท"
+        android:textColor="#06000b" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorRedButton"
+            android:onClick="onTaxBackPress"
+            android:padding="10dp"
+            android:text="ย้อนกลับ"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorGreenButton"
+            android:onClick="OpenSummaryTax"
+            android:padding="10dp"
+            android:text="ถัดไป"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

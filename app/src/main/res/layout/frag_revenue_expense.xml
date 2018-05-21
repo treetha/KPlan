@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_balancestatement_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_addRev"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.0"
+            android:background="@color/colorGreenButton"
+            android:padding="10dp"
+            android:text="รายรับ"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_addExp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.0"
+            android:background="@color/colorRedButton"
+            android:padding="10dp"
+            android:text="รายจ่าย"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_addPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorOrangeButton"
+            android:padding="10dp"
+            android:text="แผนค่าใช้จ่าย"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview_revenue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp" />
+</android.support.constraint.ConstraintLayout>

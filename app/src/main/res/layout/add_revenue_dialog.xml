@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_titlename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGreenButton"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="TitleName"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner_deposittype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp" />
+
+    <EditText
+        android:id="@+id/edittext_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:hint="กรอกจำนวนเงิน"
+        android:inputType="numberDecimal"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/edittext_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:editable="false"
+        android:ems="10"
+        android:hint="วันที่รับเงิน"
+        android:inputType="none"
+        android:padding="5dp" />
+</LinearLayout>

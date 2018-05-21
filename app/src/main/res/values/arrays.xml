@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="สถานภาพ">
+        <item>โสด</item>
+        <item>สมรส</item>
+    </array>
+</resources>

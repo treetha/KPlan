@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/simplepie_titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="My Port"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/simplepie_descripTv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="end"
+            android:text="รายละเอียดสินทรัพย์" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/simplepie_descripTv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="มูลค่าสินทรัพย์" />
+
+    <TextView
+        android:id="@+id/simplepie_descripTv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="123,xxx" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

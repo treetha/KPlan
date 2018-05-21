@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textview_risk_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="สรุปภาระภาษีที่ทดลองวางแผน"
+        android:textStyle="bold" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearlayout_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorRedButton"
+            android:onClick="onTaxBackPress"
+            android:padding="10dp"
+            android:text="ย้อนกลับ"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorGreenButton"
+            android:onClick="OpenMainMenu"
+            android:padding="10dp"
+            android:text="ถัดไป"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

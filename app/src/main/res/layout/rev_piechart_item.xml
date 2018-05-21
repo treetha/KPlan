@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/simplepie_titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="เงินคงเหลือ"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/simplepie_amountTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/simplepie_titleTv"
+            android:paddingBottom="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="12.00"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/simplepie_bahtTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/simplepie_amountTv"
+            android:paddingBottom="10dp"
+            android:text="บาท"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/rev_pieChart"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+</LinearLayout>

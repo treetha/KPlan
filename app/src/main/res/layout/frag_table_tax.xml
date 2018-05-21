@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textview_risk_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="ตารางคำนวณภาษี"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/table_tax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title">
+
+        <TableRow
+            android:id="@+id/table_tax_row0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorOrangeButton"
+            android:padding="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:text="ช่วงรายได้" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:gravity="center_vertical"
+                android:text="ฐานภาษี" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="ฐานภาษีที่ต้องเสีย" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="visible"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="0 - 150,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="5 %" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="ยกเว้น" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="150,000 - 300,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="5 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="7,500.00" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table_tax_row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="300,001 - 500,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="10 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20,000.00" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/table_tax_row4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="500,001 - 750,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="15 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="37,500.00" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/table_tax_row5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="750,001 - 1,000,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="20 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="50,000.00" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/table_tax_row6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="1,000,001 - 2,000,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="25 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="250,000.00" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/table_tax_row7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="2,000,001 - 5,000,000" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="30 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="900,000.00" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/table_tax_row8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:visibility="gone"
+            android:layout_marginBottom="10dp"
+            android:weightSum="3.25">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="12sp"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="5,000,001 ขึ้นไป" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="35 %" />
+
+            <TextView
+                android:id="@+id/table_tax_value8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/textview_table_tax_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_tax"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="คิดเป็นภาระภาษี"
+        android:textColor="#06000b" />
+
+    <TextView
+        android:id="@+id/textview_total_revenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_table_tax_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_table_tax_title"
+        app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue_baht"
+        android:layout_marginBottom="8dp"
+        android:padding="15dp"
+        android:text="0.00"
+        android:textColor="#06000b" />
+
+    <TextView
+        android:id="@+id/textview_total_revenue_baht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textview_table_tax_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_table_tax_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:padding="15dp"
+        android:text="บาท"
+        android:textColor="#06000b" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorRedButton"
+            android:onClick="onTaxBackPress"
+            android:padding="10dp"
+            android:text="ย้อนกลับ"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorGreenButton"
+            android:onClick="OpenDeductTax"
+            android:padding="10dp"
+            android:text="ถัดไป"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

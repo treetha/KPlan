@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textview_risk_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="วางแผนภาษี"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollview_risk_test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearlayout_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="ค่านายหน้า"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_ot">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_ot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="ค่าล่วงเวลา"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_bonus">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textview_risk_test_remark1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrangeButton"
+                android:padding="10dp"
+                android:text="ข้อมูลรายได้"
+                android:textColor="#06000c"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_bonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="โบนัส"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_salary">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="เงินเดือน"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_remark1">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="รายได้อื่นๆ"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_service">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_calculate_rev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="#ff7373"
+                android:text="บันทึก"
+                app:layout_constraintTop_toBottomOf="@+id/input_other" />
+
+            <TextView
+                android:id="@+id/textview_risk_test_remark2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOrangeButton"
+                android:padding="10dp"
+                android:text="หักค่าใช้จ่ายตามรายได้"
+                android:textColor="#06000c"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_calculate_rev" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_revenue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="ตามรายได้"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_remark2">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+
+                    android:inputType="none" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textview_risk_test_remark3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOrangeButton"
+                android:padding="10dp"
+                android:text="ลดหย่อนที่ไม่ควรลืม"
+                android:textColor="#06000c"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_revenue" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_private_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="ส่วนตัว"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_remark3">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+
+                    android:text="60,000"
+                    android:inputType="none" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_pair_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="คู่สมรส"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_private_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_child_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="บุตร"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_pair_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_parent_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="บุพการี"
+                app:layout_constraintTop_toBottomOf="@+id/input_child_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_ss_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="ประกันสังคม"
+                app:layout_constraintTop_toBottomOf="@+id/input_parent_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_calculate_private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="#ff7373"
+                android:text="บันทึก"
+                app:layout_constraintTop_toBottomOf="@+id/input_ss_rev" />
+
+
+            <TextView
+                android:id="@+id/textview_risk_test_remark4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOrangeButton"
+                android:padding="10dp"
+                android:text="ลดหย่อนจากการออมและลงทุน"
+                android:textColor="#06000c"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_calculate_private" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_ltf_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="กองทุนรวม LTF"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_remark4">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_rmf_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="กองทุนรวม RMF"
+                app:layout_constraintTop_toBottomOf="@+id/input_ltf_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_ins_rev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="เบี้ยประกันชีวิต"
+                app:layout_constraintTop_toBottomOf="@+id/input_rmf_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_ins_rev2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="เบี้ยประกันบำนาญ"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_ins_rev">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_calculate_deduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="#ff7373"
+                android:text="บันทึก"
+                app:layout_constraintTop_toBottomOf="@+id/input_ins_rev2" />
+
+
+            <TextView
+                android:id="@+id/textview_risk_test_title_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:text="รายได้สุทธิ"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_calculate_deduct" />
+
+            <TextView
+                android:id="@+id/textview_total_revenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:text="0.00"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textview_risk_test_title_5"
+                app:layout_constraintBottom_toBottomOf="@+id/textview_risk_test_title_5"
+                app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue_baht"
+                app:layout_constraintTop_toBottomOf="@+id/input_other" />
+
+            <TextView
+                android:id="@+id/textview_total_revenue_baht"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:text="บาท"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textview_risk_test_title_5"
+                app:layout_constraintBottom_toBottomOf="@+id/textview_risk_test_title_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_other" />
+
+            <TextView
+                android:id="@+id/textview_tax_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="รายจ่ายภาษีต่อปี"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/textview_total_tax"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title_5" />
+
+            <TextView
+                android:id="@+id/textview_total_tax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingEnd="10dp"
+                android:text="0.00"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textview_tax_title"
+                app:layout_constraintBottom_toBottomOf="@+id/textview_tax_title"
+                app:layout_constraintEnd_toStartOf="@+id/textview_total_tax_baht"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title_5" />
+
+            <TextView
+                android:id="@+id/textview_total_tax_baht"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="บาท"
+                android:textColor="#06000c"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textview_tax_title"
+                app:layout_constraintBottom_toBottomOf="@+id/textview_tax_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_risk_test_title_5" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorRedButton"
+            android:onClick="onTaxBackPress"
+            android:padding="10dp"
+            android:text="ย้อนกลับ"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/colorGreenButton"
+            android:padding="10dp"
+            android:text="ถัดไป"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

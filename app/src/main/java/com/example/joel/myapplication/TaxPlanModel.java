@@ -9,12 +9,12 @@ public class TaxPlanModel implements Serializable {
     private double insurance2Decrease=0;
     private double insuranceDecrease=0;
     private double ltfDecrease=0;
+    private double rmfDecrease=0;
     private double otRev=0;
     private double otherRev=0;
     private double pairDecrease=0;
     private double parentDecrease=0;
     private double privateDecrease=0;
-    private double rmfDecrease=0;
     private double salaryRev=0;
     private double serviceRev=0;
     private double socialDecrease=0;
@@ -22,6 +22,14 @@ public class TaxPlanModel implements Serializable {
     private double totalRevenue=0;
     private double totalDecrease=0;
     private double totalTax=0;
+    private double totalTaxWithoutInvest=0;
+
+
+    private double totalTestTax=0;
+    private double insurance2Test=0;
+    private double insuranceTest=0;
+    private double ltfTest=0;
+    private double rmfTest=0;
 
     private int taxRank=0;
     private double taxRankAmount=0;
@@ -184,5 +192,53 @@ public class TaxPlanModel implements Serializable {
 
     public void setTotalDecrease(double totalDecrease) {
         this.totalDecrease = totalDecrease;
+    }
+
+    public double getTotalTestTax() {
+        return totalTestTax;
+    }
+
+    public void setTotalTestTax(double totalTestTax) {
+        this.totalTestTax = totalTestTax;
+    }
+
+    public double getTotalTaxWithoutInvest() {
+        return totalTaxWithoutInvest;
+    }
+
+    public void setTotalTaxWithoutInvest(double totalTaxWithoutInvest) {
+        this.totalTaxWithoutInvest = totalTaxWithoutInvest;
+    }
+
+    public double getInsurance2Test() {
+        return insurance2Test;
+    }
+
+    public void setInsurance2Test(double insurance2Test) {
+        this.insurance2Test = insurance2Test;
+    }
+
+    public double getInsuranceTest() {
+        return insuranceTest;
+    }
+
+    public void setInsuranceTest(double insuranceTest) {
+        this.insuranceTest = insuranceTest;
+    }
+
+    public double getLtfTest() {
+        return ltfTest;
+    }
+
+    public void setLtfTest(double ltfTest) {
+        this.ltfTest = ltfTest;
+    }
+
+    public double getRmfTest() {
+        return rmfTest;
+    }
+
+    public void setRmfTest(double rmfTest) {
+        this.rmfTest = rmfTest;
     }
 }

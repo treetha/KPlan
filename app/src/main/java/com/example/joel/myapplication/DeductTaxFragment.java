@@ -46,25 +46,26 @@ public class DeductTaxFragment extends Fragment {
         taxPlanModel = (TaxPlanModel) gson.fromJson(jsonTax, typetax);
 
         if(taxPlanModel!=null){
-            double calTax = calTax(taxPlanModel.getTotalRevenue());
-            double deductValue = calTax - taxPlanModel.getTotalTax();
+            double decreasePrivateTax = taxPlanModel.getExpenseRev() + taxPlanModel.getPrivateDecrease() + taxPlanModel.getPairDecrease() + taxPlanModel.getParentDecrease() + taxPlanModel.getSocialDecrease() + taxPlanModel.getChildDecrease();
+            double decreaseInvestTax = taxPlanModel.getLtfDecrease() + taxPlanModel.getRmfDecrease() + taxPlanModel.getInsuranceDecrease() + taxPlanModel.getInsurance2Decrease();
+            double calTaxWithoutInvest = calTax(taxPlanModel.getTotalRevenue() - decreasePrivateTax);
+            taxPlanModel.setTotalTaxWithoutInvest(calTaxWithoutInvest);
+            double deductValue = calTaxWithoutInvest - taxPlanModel.getTotalTax();
             getStringAmount(deduct1, deductValue);
         }
         double ltfuse = 0;
         double rmfuse = 0;
         double maxLTF = taxPlanModel.getTotalRevenue() * 15 /100 ;
         if(maxLTF >= 500000){
-            getStringAmount(ltfMax, 250000);
-            getStringAmount(rmfMax, 250000);
-            ltfuse = 250000 - taxPlanModel.getLtfDecrease();
-            rmfuse = 250000 - taxPlanModel.getRmfDecrease();
-
+            getStringAmount(ltfMax, 500000);
+            getStringAmount(rmfMax, 500000);
+            ltfuse = 500000 - taxPlanModel.getLtfDecrease();
+            rmfuse = 500000 - taxPlanModel.getRmfDecrease();
         }else{
-            getStringAmount(ltfMax, maxLTF / 2);
-            getStringAmount(rmfMax, maxLTF / 2);
-            ltfuse = (maxLTF / 2) - taxPlanModel.getLtfDecrease();
-            rmfuse = (maxLTF / 2) - taxPlanModel.getRmfDecrease();
-
+            getStringAmount(ltfMax, maxLTF);
+            getStringAmount(rmfMax, maxLTF);
+            ltfuse = (maxLTF) - taxPlanModel.getLtfDecrease();
+            rmfuse = (maxLTF) - taxPlanModel.getRmfDecrease();
         }
 
         getStringAmount(ltfUse, ltfuse);

@@ -69,18 +69,22 @@
                 android:text="กองทุน LTF" />
 
             <TextView
+                android:id="@+id/text_ltf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
                 android:text="50,000" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edit_ltf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="20,000" />
+                android:hint="กรอกจำนวนเงิน"
+                android:textSize="14sp"
+                android:inputType="numberDecimal"
+                android:text="" />
         </TableRow>
 
         <TableRow
@@ -98,18 +102,22 @@
                 android:text="กองทุน RMF" />
 
             <TextView
+                android:id="@+id/text_rmf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
                 android:text="50,000" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edit_rmf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="20,000" />
+                android:hint="กรอกจำนวนเงิน"
+                android:textSize="14sp"
+                android:inputType="numberDecimal"
+                android:text="" />
         </TableRow>
 
         <TableRow
@@ -127,18 +135,22 @@
                 android:text="เบี้ยประกันชีวิต" />
 
             <TextView
+                android:id="@+id/text_ins1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
                 android:text="20,000" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edit_ins1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="10,000" />
+                android:hint="กรอกจำนวนเงิน"
+                android:textSize="14sp"
+                android:inputType="numberDecimal"
+                android:text="" />
         </TableRow>
 
         <TableRow
@@ -156,20 +168,33 @@
                 android:text="เบี้ยประกันบำนาญ" />
 
             <TextView
+                android:id="@+id/text_ins2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="150,000" />
+                android:text="0.00" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edit_ins2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="20,000" />
+                android:hint="กรอกจำนวนเงิน"
+                android:textSize="14sp"
+                android:inputType="numberDecimal" />
         </TableRow>
     </TableLayout>
+
+    <Button
+        android:id="@+id/button_calculate_tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#ff7373"
+        android:text="บันทึก"
+        app:layout_constraintTop_toBottomOf="@+id/table_tax" />
 
     <TextView
         android:id="@+id/textview_table_tax_title"
@@ -177,10 +202,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table_tax"
+        app:layout_constraintTop_toBottomOf="@+id/button_calculate_tax"
         android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:text="คุณสามารถลดภาระภาษีรวม"
+        android:layout_marginTop="15dp"
+        android:text="คุณสามารถลดหย่อนภาระภาษีรวม"
         android:textColor="#06000b" />
 
     <TextView
@@ -192,7 +217,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textview_total_revenue_baht"
         android:layout_marginBottom="8dp"
         android:padding="15dp"
-        android:text="7,500.00"
+        android:text="0.00"
         android:textColor="#06000b" />
 
     <TextView
@@ -233,7 +258,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:background="@color/colorGreenButton"
-            android:onClick="OpenSummaryTax"
             android:padding="10dp"
             android:text="ถัดไป"
             android:textColor="#FFFFFF" />

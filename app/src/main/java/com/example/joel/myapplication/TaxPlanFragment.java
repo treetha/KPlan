@@ -77,9 +77,10 @@ public class TaxPlanFragment extends Fragment {
         double otD = Double.parseDouble("".equals(getStringAmount(ot)) ? "0" : getStringAmount(ot));
 
         double serD = Double.parseDouble("".equals(getStringAmount(service)) ? "0" : getStringAmount(service));
+
         double otherD = Double.parseDouble("".equals(getStringAmount(other)) ? "0" : getStringAmount(other));
 
-        double sumRevenue = ((bonusD + saraD + otD + serD + otherD));
+        double sumRevenue = ((bonusD + (saraD*12) + (otD*12) + (serD*12) + (otherD*12)));
 
         taxPlanModel.setBonusRev(bonusD);
         taxPlanModel.setSalaryRev(saraD);
@@ -138,8 +139,9 @@ public class TaxPlanFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).OpenTableTax(v);
                 saveData();
+                ((MainActivity) getActivity()).OpenTableTax(v);
+
             }
         });
 
@@ -223,8 +225,8 @@ public class TaxPlanFragment extends Fragment {
             setDefaultData(ot, taxPlanModel.getOtRev());
             setDefaultData(other, taxPlanModel.getOtherRev());
             setDefaultData(pair, taxPlanModel.getPairDecrease());
-            setDefaultData(parent, taxPlanModel.getBonusRev());
-            setDefaultData(rmf, taxPlanModel.getParentDecrease());
+            setDefaultData(parent, taxPlanModel.getParentDecrease());
+            setDefaultData(rmf, taxPlanModel.getRmfDecrease());
             setDefaultData(salary, taxPlanModel.getSalaryRev());
             setDefaultData(service, taxPlanModel.getServiceRev());
             setDefaultData(social, taxPlanModel.getSocialDecrease());
@@ -248,6 +250,7 @@ public class TaxPlanFragment extends Fragment {
     }
 
     public void saveData() {
+        saveModel();
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         String userId = appSharedPrefs.getString("currentUserProfile", "treetha");
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
@@ -257,6 +260,47 @@ public class TaxPlanFragment extends Fragment {
             prefsEditor.putString(Constant.PREF_TAX_PLAN + userId, jsonTax);
             prefsEditor.commit();
         }
+    }
+
+    private void saveModel() {
+        double expenseD = Double.parseDouble("".equals(getStringAmount(expense)) ? "0" : getStringAmount(expense));
+        double myPrivateD = Double.parseDouble("".equals(getStringAmount(myPrivate)) ? "0" : getStringAmount(myPrivate));
+        double pairD = Double.parseDouble("".equals(getStringAmount(pair)) ? "0" : getStringAmount(pair));
+        double childD = Double.parseDouble("".equals(getStringAmount(child)) ? "0" : getStringAmount(child));
+        double parentD = Double.parseDouble("".equals(getStringAmount(parent)) ? "0" : getStringAmount(parent));
+        double socialD = Double.parseDouble("".equals(getStringAmount(social)) ? "0" : getStringAmount(social));
+        double ltfD = Double.parseDouble("".equals(getStringAmount(ltf)) ? "0" : getStringAmount(ltf));
+        double rmfD = Double.parseDouble("".equals(getStringAmount(rmf)) ? "0" : getStringAmount(rmf));
+        double ins1D = Double.parseDouble("".equals(getStringAmount(insurance1)) ? "0" : getStringAmount(insurance1));
+        double ins2D = Double.parseDouble("".equals(getStringAmount(insurance2)) ? "0" : getStringAmount(insurance2));
+        double bonusD = Double.parseDouble("".equals(getStringAmount(bonus)) ? "0" : getStringAmount(bonus));
+        double saraD = Double.parseDouble("".equals(getStringAmount(salary)) ? "0" : getStringAmount(salary));
+        double otD = Double.parseDouble("".equals(getStringAmount(ot)) ? "0" : getStringAmount(ot));
+        double serD = Double.parseDouble("".equals(getStringAmount(service)) ? "0" : getStringAmount(service));
+        double otherD = Double.parseDouble("".equals(getStringAmount(other)) ? "0" : getStringAmount(other));
+
+        double totalrev = Double.parseDouble("".equals(totalRevenue.getText().toString().replace(",","")) ? "0" : totalRevenue.getText().toString().replace(",",""));
+        double totaltax = Double.parseDouble("".equals(totalTax.getText().toString().replace(",","")) ? "0" : totalTax.getText().toString().replace(",",""));
+
+
+        taxPlanModel.setExpenseRev(expenseD);
+        taxPlanModel.setPrivateDecrease(myPrivateD);
+        taxPlanModel.setPairDecrease(pairD);
+        taxPlanModel.setChildDecrease(childD);
+        taxPlanModel.setParentDecrease(parentD);
+        taxPlanModel.setSocialDecrease(socialD);
+        taxPlanModel.setLtfDecrease(ltfD);
+        taxPlanModel.setRmfDecrease(rmfD);
+        taxPlanModel.setInsuranceDecrease(ins1D);
+        taxPlanModel.setInsurance2Decrease(ins2D);
+        taxPlanModel.setBonusRev(bonusD);
+        taxPlanModel.setSalaryRev(saraD);
+        taxPlanModel.setOtRev(otD);
+        taxPlanModel.setOtherRev(otherD);
+        taxPlanModel.setServiceRev(serD);
+        taxPlanModel.setTotalRevenue(totalrev);
+        taxPlanModel.setTotalTax(totaltax);
+
     }
 
     public void calculateTax(double sumRevenue, double sumDecrease) {

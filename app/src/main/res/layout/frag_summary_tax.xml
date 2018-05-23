@@ -40,6 +40,7 @@
                 android:text="ภาระภาษีก่อนการใช้สิทธิ" />
 
             <TextView
+                android:id="@+id/tax_total_head"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
@@ -60,21 +61,21 @@
             android:layout_height="wrap_content"
             android:background="@color/colorOrangeButton"
             android:padding="10dp"
-            android:weightSum="2.0">
+            android:weightSum="2.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="ปัจจุบันใช้สิทธิแล้วภาษีลดลง" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="ปัจจุบันใช้สิทธิแล้ว" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="ภาษีลดลงเหลือ" />
+                android:text="ภาษีจ่าย" />
         </TableRow>
 
         <TableRow
@@ -84,21 +85,47 @@
             android:padding="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:weightSum="2.0">
+            android:weightSum="2.2">
 
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="15,000.00 บาท" />
+                android:orientation="horizontal"
+                android:layout_weight="1.2">
+                <TextView
+                    android:id="@+id/tax_total_use1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="15,000.00" />
 
-            <TextView
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tax_total_baht1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="บาท" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="5,700.00 บาท" />
+                android:orientation="horizontal"
+                android:layout_weight="1.0">
+                <TextView
+                    android:id="@+id/tax_total_decrease1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="15,000.00" />
+
+                <TextView
+                    android:id="@+id/tax_total_baht2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="บาท" />
+            </LinearLayout>
+
         </TableRow>
 
         <TableRow
@@ -107,21 +134,21 @@
             android:layout_height="wrap_content"
             android:background="@color/colorOrangeButton"
             android:padding="10dp"
-            android:weightSum="2.0">
+            android:weightSum="2.2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                android:text="ภาษีลดลงหลังวางแผน" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="ใช้สิทะิเพิ่มเติม" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="ภาษีลดลงเหลือ" />
+                android:text="ภาษีจ่าย" />
         </TableRow>
 
         <TableRow
@@ -131,21 +158,48 @@
             android:padding="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:weightSum="2.0">
+            android:weightSum="2.2">
 
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="6,500.00 บาท" />
+                android:orientation="horizontal"
+                android:layout_weight="1.2">
+                <TextView
+                    android:id="@+id/tax_total_use2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="15,000.00" />
 
-            <TextView
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tax_total_baht3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="บาท" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
-                android:text="5,210.00 บาท" />
+                android:orientation="horizontal"
+                android:layout_weight="1.2">
+                <TextView
+                    android:id="@+id/tax_total_decrease2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="15,000.00" />
+
+                <TextView
+                    android:id="@+id/tax_total_baht4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="บาท" />
+            </LinearLayout>
+
         </TableRow>
     </TableLayout>
 

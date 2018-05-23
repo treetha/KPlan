@@ -12,14 +12,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
-        android:padding="15dp"
+        android:padding="20dp"
         android:text="สรุปภาระภาษีที่ทดลองวางแผน"
         android:textStyle="bold" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
         android:layout_width="300dp"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toTopOf="@+id/linearlayout_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

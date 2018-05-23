@@ -2,6 +2,7 @@ package com.example.joel.myapplication;
 
 import android.app.Fragment;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleFragment extends Fragment {
-    private String[] mLabels = new String[]{"เมื่อใช้สิทธิแล้ว", "เมื่อใช้สิทธิเพิ่มเติม", "Company C", "Company D", "Company E", "Company F"};
+    private String[] mLabels = new String[]{"ภาษีที่ต้องจ่ายก่อนวางแผน", "ภาษีที่ต้องจ่ายหลังวางแผน"};
     private Typeface tf;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,16 +37,32 @@ public class SimpleFragment extends Fragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    protected BarData generateBarData(int dataSets, float range, int count) {
+    protected BarData generateBarData(float dataSets1,float dataSets2, float range, int count) {
         List sets = new ArrayList();
-        for (int i = 0; i < dataSets; i++) {
+//        for (int i = 0; i < dataSets1; i++) {
             ArrayList<BarEntry> entries = new ArrayList();
-            entries.add(new BarEntry(0.0f, 14865.0f));
-            entries.add(new BarEntry(1.0f, 4589.0f));
-            BarDataSet ds = new BarDataSet(entries, getLabel(i));
-            ds.setColors(ColorTemplate.VORDIPLOM_COLORS);
+            entries.add(new BarEntry(0.0f, dataSets1));
+            ArrayList<BarEntry> entries2 = new ArrayList();
+            entries2.add(new BarEntry(1.0f, dataSets2));
+
+            BarDataSet ds = new BarDataSet(entries, mLabels[0]);
+
+            BarDataSet ds2 = new BarDataSet(entries2, mLabels[1]);
+
+            ds.setHighlightEnabled(false);
+            ds.setColors(ColorTemplate.VORDIPLOM_COLORS[0]);
+            ds.setValueTextSize(18);
             sets.add(ds);
-        }
+
+            ds2.setHighlightEnabled(false);
+            ds2.setColors(ColorTemplate.VORDIPLOM_COLORS[1]);
+            ds2.setValueTextSize(18);
+            sets.add(ds2);
+//            BarDataSet ds2 = new BarDataSet(null, mLabels[1]);
+////            ds2.setColors(ColorTemplate.VORDIPLOM_COLORS);
+//        ds2.setStackLabels(mLabels);
+//            sets.add(ds2);
+//        }
         BarData d = new BarData(sets);
         d.setValueTypeface(this.tf);
         return d;

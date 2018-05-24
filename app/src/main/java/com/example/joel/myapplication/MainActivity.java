@@ -111,15 +111,21 @@ public class MainActivity extends AppCompatActivity
             Fragment f = getFragmentManager().findFragmentById(R.id.layout_fragment_container);
             if (f instanceof BalanceStatementFragment) {
                 ((BalanceStatementFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_BALANCE)).saveData();
-                openPieChart();
             } else if (f instanceof RevenueExpenseFragment) {
                 ((RevenueExpenseFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_REVENUE)).saveData();
-                openPieChart();
             } else if (f instanceof TaxPlanFragment) {
                 ((TaxPlanFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_TAXPLAN)).saveData();
-                openPieChart();
             }
+            openPieChart();
         } else if (id == R.id.nav_logout) {
+            Fragment f = getFragmentManager().findFragmentById(R.id.layout_fragment_container);
+            if (f instanceof BalanceStatementFragment) {
+                ((BalanceStatementFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_BALANCE)).saveData();
+            } else if (f instanceof RevenueExpenseFragment) {
+                ((RevenueExpenseFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_REVENUE)).saveData();
+            } else if (f instanceof TaxPlanFragment) {
+                ((TaxPlanFragment) getFragmentManager().findFragmentByTag(Constant.FRAG_TAXPLAN)).saveData();
+            }
             finish();
         }
 

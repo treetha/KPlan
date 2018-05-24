@@ -70,6 +70,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             case R.id.button9:
                 onClickPassword("9");
                 return;
+            case R.id.button_delete:
+                onClickPassword("Delete");
+                return;
             default:
                 return;
         }
@@ -78,25 +81,57 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     private void onClickPassword(String text) {
         switch (this.password.length()) {
             case 0:
-                this.rad1.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad1.setChecked(false);
+                }else{
+                    this.rad1.setChecked(true);
+                }
                 break;
             case 1:
-                this.rad2.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad1.setChecked(false);
+                }else{
+                    this.rad2.setChecked(true);
+                }
                 break;
             case 2:
-                this.rad3.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad2.setChecked(false);
+                }else{
+                    this.rad3.setChecked(true);
+                }
                 break;
             case 3:
-                this.rad4.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad3.setChecked(false);
+                }else{
+                    this.rad4.setChecked(true);
+                }
                 break;
             case 4:
-                this.rad5.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad4.setChecked(false);
+                }else{
+                    this.rad5.setChecked(true);
+                }
                 break;
             case 5:
-                this.rad6.setChecked(true);
+                if("Delete".equals(text)){
+                    this.rad5.setChecked(false);
+                }else{
+                    this.rad6.setChecked(true);
+                }
+            case 6:
+                if("Delete".equals(text)){
+                    this.rad6.setChecked(false);
+                }
                 break;
         }
         if (this.password.length() <= 6) {
+            if("Delete".equals(text) && !"".equals(password)){
+                this.password = password.substring(0, password.length() - 1);
+                return;
+            }
             this.password = this.password.concat(text);
             if (this.password.length() == 6) {
                 UserModel userModel = (UserModel) new Gson().fromJson(PreferenceManager.getDefaultSharedPreferences(this).getString(this.password, ""), new C04541().getType());

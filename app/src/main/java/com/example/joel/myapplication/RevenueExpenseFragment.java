@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -147,6 +148,8 @@ public class RevenueExpenseFragment extends Fragment {
         View view = getActivity().getLayoutInflater().inflate(R.layout.add_revenue_dialog, null);
         final EditText amountEt = (EditText) view.findViewById(R.id.edittext_amount);
         amountEt.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(10, 2)});
+        final EditText addNewExp = (EditText) view.findViewById(R.id.edittext_add_new_task);
+        addNewExp.setHint("กรอกแผนอื่นๆ");
         final EditText dateEt = (EditText) view.findViewById(R.id.edittext_date);
         dateEt.setHint("วันที่จ่าย");
         dateEt.setOnClickListener(this.onShowDateCalendar);
@@ -154,9 +157,25 @@ public class RevenueExpenseFragment extends Fragment {
         TextView titleTv = (TextView) view.findViewById(R.id.textview_titlename);
         titleTv.setText("แผนค่าใช้จ่าย");
         titleTv.setBackgroundResource(R.color.colorOrangeButton);
-        final String[] arrayForSpinner = new String[]{Constant.PLAN_HOME, Constant.PLAN_CAR};
+        final String[] arrayForSpinner = new String[]{Constant.PLAN_HOME, Constant.PLAN_CAR, Constant.EXP_OTHER};
         final Spinner spinner = (Spinner) view.findViewById(R.id.spinner_deposittype);
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayForSpinner, Constant.SPINNER_PLAN_HINT));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == parent.getCount() - 1){
+                    addNewExp.setVisibility(View.VISIBLE);
+                    addNewExp.requestFocus();
+                }else{
+                    addNewExp.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         AlertDialog alertDialog = new Builder(getActivity()).setView(view).setPositiveButton("บันทึก", null).setNegativeButton("ยกเลิก", null).create();
         alertDialog.setOnShowListener(new OnShowListener() {
             public void onShow(final DialogInterface dialog) {
@@ -168,6 +187,21 @@ public class RevenueExpenseFragment extends Fragment {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Amount", Toast.LENGTH_SHORT).show();
                         } else if ("".equals(dateEt.getText().toString())) {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Date", Toast.LENGTH_SHORT).show();
+                        } else if(Constant.EXP_OTHER.equals((String) spinner.getSelectedItem())){
+                            if ("".equals(addNewExp.getText().toString())) {
+                                Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Expense", Toast.LENGTH_SHORT).show();
+                            }else{
+                                RevenueModel planModel = new RevenueModel(addNewExp.getText().toString(), new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
+                                if (RevenueExpenseFragment.this.adapter != null) {
+                                    RevenueExpenseFragment.this.adapter.addPlan(planModel);
+                                } else {
+                                    RevenueExpenseFragment.this.listPlan.add(planModel);
+                                    RevenueExpenseFragment.this.listView.setVisibility(View.VISIBLE);
+                                    RevenueExpenseFragment.this.adapter = new RevenueExpenseAdapter(RevenueExpenseFragment.this.getActivity().getApplicationContext(), RevenueExpenseFragment.this.listRev, RevenueExpenseFragment.this.listExp, RevenueExpenseFragment.this.listPlan);
+                                    RevenueExpenseFragment.this.listView.setAdapter(RevenueExpenseFragment.this.adapter);
+                                }
+                                dialog.dismiss();
+                            }
                         } else {
                             RevenueModel planModel = new RevenueModel(arrayForSpinner[spinner.getSelectedItemPosition()], new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
                             if (RevenueExpenseFragment.this.adapter != null) {
@@ -200,12 +234,30 @@ public class RevenueExpenseFragment extends Fragment {
         dateEt.setHint("วันที่จ่าย");
         dateEt.setOnClickListener(this.onShowDateCalendar);
         dateEt.setOnFocusChangeListener(this.onFocusChangeListener);
+        final EditText addNewExp = (EditText) view.findViewById(R.id.edittext_add_new_task);
+        addNewExp.setHint("กรอกรายจ่ายอื่นๆ");
         TextView titleTv = (TextView) view.findViewById(R.id.textview_titlename);
         titleTv.setText("รายจ่าย");
         titleTv.setBackgroundResource(R.color.colorRedButton);
-        final String[] arrayForSpinner = new String[]{Constant.EXP_CAR, Constant.EXP_HOME, Constant.EXP_MEA, Constant.EXP_ELEC, Constant.EXP_FOOD};
+        final String[] arrayForSpinner = new String[]{Constant.EXP_CAR, Constant.EXP_HOME, Constant.EXP_MEA, Constant.EXP_ELEC, Constant.EXP_FOOD, Constant.EXP_OTHER};
         final Spinner spinner = (Spinner) view.findViewById(R.id.spinner_deposittype);
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayForSpinner, Constant.SPINNER_EXPENSE_HINT));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == parent.getCount() - 1){
+                    addNewExp.setVisibility(View.VISIBLE);
+                    addNewExp.requestFocus();
+                }else{
+                    addNewExp.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         AlertDialog alertDialog = new Builder(getActivity()).setView(view).setPositiveButton("บันทึก", null).setNegativeButton("ยกเลิก", null).create();
         alertDialog.setOnShowListener(new OnShowListener() {
             public void onShow(final DialogInterface dialog) {
@@ -217,6 +269,21 @@ public class RevenueExpenseFragment extends Fragment {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Amount", Toast.LENGTH_SHORT).show();
                         } else if ("".equals(dateEt.getText().toString())) {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Date", Toast.LENGTH_SHORT).show();
+                        } else if(Constant.EXP_OTHER.equals((String) spinner.getSelectedItem())){
+                            if ("".equals(addNewExp.getText().toString())) {
+                                Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Expense", Toast.LENGTH_SHORT).show();
+                            }else{
+                                RevenueModel expenseModel = new RevenueModel(addNewExp.getText().toString(), new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
+                                if (RevenueExpenseFragment.this.adapter != null) {
+                                    RevenueExpenseFragment.this.adapter.addExp(expenseModel);
+                                } else {
+                                    RevenueExpenseFragment.this.listExp.add(expenseModel);
+                                    RevenueExpenseFragment.this.listView.setVisibility(View.VISIBLE);
+                                    RevenueExpenseFragment.this.adapter = new RevenueExpenseAdapter(RevenueExpenseFragment.this.getActivity().getApplicationContext(), RevenueExpenseFragment.this.listRev, RevenueExpenseFragment.this.listExp, RevenueExpenseFragment.this.listPlan);
+                                    RevenueExpenseFragment.this.listView.setAdapter(RevenueExpenseFragment.this.adapter);
+                                }
+                                dialog.dismiss();
+                            }
                         } else {
                             RevenueModel expenseModel = new RevenueModel(arrayForSpinner[spinner.getSelectedItemPosition()], new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
                             if (RevenueExpenseFragment.this.adapter != null) {
@@ -248,10 +315,28 @@ public class RevenueExpenseFragment extends Fragment {
         final EditText dateEt = (EditText) view.findViewById(R.id.edittext_date);
         dateEt.setOnClickListener(this.onShowDateCalendar);
         dateEt.setOnFocusChangeListener(this.onFocusChangeListener);
+        final EditText addNewExp = (EditText) view.findViewById(R.id.edittext_add_new_task);
+        addNewExp.setHint("กรอกรายรับอื่นๆ");
         ((TextView) view.findViewById(R.id.textview_titlename)).setText("รายรับ");
-        final String[] arrayForSpinner = new String[]{Constant.REV_SARALY, Constant.REV_OT, Constant.REV_BONUS, Constant.REV_COMMISSION};
+        final String[] arrayForSpinner = new String[]{Constant.REV_SARALY, Constant.REV_OT, Constant.REV_BONUS, Constant.REV_COMMISSION, Constant.EXP_OTHER};
         final Spinner spinner = (Spinner) view.findViewById(R.id.spinner_deposittype);
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(), R.layout.spinner_row, arrayForSpinner, Constant.SPINNER_REVENUE_HINT));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == parent.getCount() - 1){
+                    addNewExp.setVisibility(View.VISIBLE);
+                    addNewExp.requestFocus();
+                }else{
+                    addNewExp.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         AlertDialog alertDialog = new Builder(getActivity()).setView(view).setPositiveButton("บันทึก", null).setNegativeButton("ยกเลิก", null).create();
         alertDialog.setOnShowListener(new OnShowListener() {
             public void onShow(final DialogInterface dialog) {
@@ -263,6 +348,21 @@ public class RevenueExpenseFragment extends Fragment {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Amount", Toast.LENGTH_SHORT).show();
                         } else if ("".equals(dateEt.getText().toString())) {
                             Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Date", Toast.LENGTH_SHORT).show();
+                        } else if(Constant.EXP_OTHER.equals((String) spinner.getSelectedItem())){
+                            if ("".equals(addNewExp.getText().toString())) {
+                                Toast.makeText(RevenueExpenseFragment.this.getActivity(), "Enter Expense", Toast.LENGTH_SHORT).show();
+                            }else{
+                                RevenueModel revenueModel = new RevenueModel(addNewExp.getText().toString(), new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
+                                if (RevenueExpenseFragment.this.adapter != null) {
+                                    RevenueExpenseFragment.this.adapter.addRevenue(revenueModel);
+                                } else {
+                                    RevenueExpenseFragment.this.listRev.add(revenueModel);
+                                    RevenueExpenseFragment.this.listView.setVisibility(View.VISIBLE);
+                                    RevenueExpenseFragment.this.adapter = new RevenueExpenseAdapter(RevenueExpenseFragment.this.getActivity().getApplicationContext(), RevenueExpenseFragment.this.listRev, RevenueExpenseFragment.this.listExp, RevenueExpenseFragment.this.listPlan);
+                                    RevenueExpenseFragment.this.listView.setAdapter(RevenueExpenseFragment.this.adapter);
+                                }
+                                dialog.dismiss();
+                            }
                         } else {
                             RevenueModel revenueModel = new RevenueModel(arrayForSpinner[spinner.getSelectedItemPosition()], new Double(amountEt.getText().toString()).doubleValue(), dateEt.getText().toString());
                             if (RevenueExpenseFragment.this.adapter != null) {

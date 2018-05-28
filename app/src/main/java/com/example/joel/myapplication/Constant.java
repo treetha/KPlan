@@ -2,6 +2,7 @@ package com.example.joel.myapplication;
 
 public class Constant {
     public static final String PREF_TAX_PLAN = "pref_tax_plan_";
+    public static final String EXP_OTHER = "อื่นๆ";
     public static String ASSET_CASH = "เงินสด";
     public static String ASSET_DEPOSIT = "เงินฝาก";
     public static String ASSET_FUND = "กองทุนรวม";
